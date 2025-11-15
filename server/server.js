@@ -11,6 +11,12 @@ app.use(express.json());
 
 // 提供public
 app.use(express.static(path.join(__dirname, '..', 'public')));
+// 提供uploads
+app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
+
+// Images
+const imagesRouter = require('./routes/images');
+app.use('/api/images', imagesRouter);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
