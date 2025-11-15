@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Dataset Annotation Tool</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>AI Dataset Annotation Tool</h1>
+    </header>
+
+    <main class="app-main">
+      <!-- 上傳圖片區 -->
+      <section class="panel">
+        <h2>Upload Image</h2>
+        <form id="upload-form">
+          <input
+            type="file"
+            id="image-input"
+            name="image"
+            accept="image/*"
+            required
+          />
+          <button type="submit">Upload</button>
+        </form>
+        <p id="upload-status" class="status-text"></p>
+      </section>
+
+      <!-- 圖片區 -->
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Image Gallery</h2>
+          <button id="refresh-btn" type="button">Refresh</button>
+        </div>
+        <div id="images-container" class="images-grid">
+          <!-- 動態插入圖片 -->
+        </div>
+        <p id="gallery-status" class="status-text"></p>
+      </section>
+    </main>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>
