@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Annotation Tool - Upload</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="app-title">AI Dataset Annotation Tool</div>
+            <nav class="app-nav">
+                <a href="/">Index</a>
+                <a href="/images.html">Images</a>
+                <a href="/upload.html">Upload</a>
+                <a href="/labels.html">Labels</a>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <section class="panel">
+                <h2>Upload Image</h2>
+
+                <form id="upload-form" class="upload-form">
+                    <div class="upload-form-row">
+                        <input type="file" id="image-input" name="image" accept="image/*" required />
+                        <button type="submit">Upload</button>
+                    </div>
+                </form>
+
+                <p id="upload-status" class="status-text"></p>
+                <p id="upload-link" class="status-text"></p>
+            </section>
+        </main>
+    </div>
+
+    <script src="/js/nav.js"></script>
+    <script src="/js/upload.js"></script>
+</body>
+
+</html>

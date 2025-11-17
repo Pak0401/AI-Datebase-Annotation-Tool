@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Annotation Tool - Labels</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="app-title">AI Dataset Annotation Tool</div>
+            <nav class="app-nav">
+                <a href="/">Index</a>
+                <a href="/images.html">Images</a>
+                <a href="/upload.html">Upload</a>
+                <a href="/labels.html">Labels</a>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <section class="panel">
+                <h2>Labels</h2>
+
+                <form id="label-form" class="upload-form">
+                    <div class="upload-form-row">
+                        <input type="text" id="new-label-input" placeholder="New label..." />
+                        <button type="submit">Add Label</button>
+                    </div>
+                </form>
+
+                <p id="labels-status" class="status-text"></p>
+
+                <table class="labels-table">
+                    <thead>
+                        <tr>
+                            <th>Label</th>
+                            <th style="width: 200px; text-align: right">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="labels-tbody"></tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <script src="/js/nav.js"></script>
+    <script src="/js/labels.js"></script>
+</body>
+
+</html>

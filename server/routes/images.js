@@ -9,6 +9,7 @@ const {
   addLabelToImage,
   getAllImagesWithLabels,
   getImageByIdWithLabels,
+  removeLabelFromImage,
   runAsync,
 } = require('../models/database');
 
@@ -111,6 +112,21 @@ router.post('/:id/labels', async (req, res) => {
   }
 });
 
+// 刪除 label
+router.delete('/:id/labels/:labelId', async (req, res) => {
+  const imageId = req.params.id;
+  const labelId = req.params.labelId;
+
+  try {
+    await removeLabelFromImage(imageId, labelId);
+
+    const updated = await getImageByIdWithLabels(imageId);
+    res.json(updated);
+  } catch (err) {
+    console.error('DELETE /api/images/:id/labels/:labelId error:', err);
+    res.status(500).json({ error: 'Failed to remove label' });
+  }
+});
 
 // 刪除圖片
 router.delete('/:id', async (req, res) => {

@@ -1,8 +1,9 @@
 // server/routes/labels.js
 const express = require('express');
 const {
-  findOrCreateLabelByName,
   getAllLabels,
+  findOrCreateLabelByName,
+  updateLabelName,
   deleteLabelById,
 } = require('../models/database');
 
@@ -18,6 +19,7 @@ router.get('/', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch labels' });
   }
 });
+
 // 新增 label
 router.post('/', async (req, res) => {
   const { name } = req.body;
@@ -29,19 +31,34 @@ router.post('/', async (req, res) => {
     const label = await findOrCreateLabelByName(name.trim());
     res.json(label);
   } catch (err) {
-    console.error('POST /api/labels error:', err);
+    console.error('POST /labels error:', err);
     res.status(500).json({ error: 'Failed to create label' });
+  }
+});
+
+// 編輯 label
+router.put('/:id', async (req, res) => {
+  const { name } = req.body;
+  if (!name || !name.trim()) {
+    return res.status(400).json({ error: 'name is required' });
+  }
+
+  try {
+    await updateLabelName(req.params.id, name.trim());
+    res.json({ success: true });
+  } catch (err) {
+    console.error('PUT /labels error:', err);
+    res.status(500).json({ error: 'Failed to edit label' });
   }
 });
 
 // 刪除 label
 router.delete('/:id', async (req, res) => {
-  const labelId = req.params.id;
   try {
-    await deleteLabelById(labelId);
+    await deleteLabelById(req.params.id);
     res.json({ success: true });
   } catch (err) {
-    console.error('DELETE /api/labels/:id error:', err);
+    console.error('DELETE /labels error:', err);
     res.status(500).json({ error: 'Failed to delete label' });
   }
 });

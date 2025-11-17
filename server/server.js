@@ -2,6 +2,9 @@ const path = require('path');
 const express = require('express');
 const cors = require('cors');
 
+const imagesRouter = require('./routes/images');
+const labelsRouter = require('./routes/labels');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -14,9 +17,9 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 // 提供uploads
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
-// Images
-const imagesRouter = require('./routes/images');
+// Api
 app.use('/api/images', imagesRouter);
+app.use('/api/labels', labelsRouter);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

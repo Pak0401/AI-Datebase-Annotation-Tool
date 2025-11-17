@@ -1,45 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <title>AI Dataset Annotation Tool</title>
+    <title>Annotation Tool - Index</title>
     <link rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
-    <header class="app-header">
-      <h1>AI Dataset Annotation Tool</h1>
-    </header>
+</head>
 
-    <main class="app-main">
-      <!-- 上傳圖片區 -->
-      <section class="panel">
-        <h2>Upload Image</h2>
-        <form id="upload-form">
-          <input
-            type="file"
-            id="image-input"
-            name="image"
-            accept="image/*"
-            required
-          />
-          <button type="submit">Upload</button>
-        </form>
-        <p id="upload-status" class="status-text"></p>
-      </section>
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="app-title">AI Dataset Annotation Tool</div>
+            <nav class="app-nav">
+                <a href="/">Index</a>
+                <a href="/images.html">Images</a>
+                <a href="/upload.html">Upload</a>
+                <a href="/labels.html">Labels</a>
+            </nav>
+        </header>
 
-      <!-- 圖片區 -->
-      <section class="panel">
-        <div class="panel-header">
-          <h2>Image Gallery</h2>
-          <button id="refresh-btn" type="button">Refresh</button>
-        </div>
-        <div id="images-container" class="images-grid">
-          <!-- 動態插入圖片 -->
-        </div>
-        <p id="gallery-status" class="status-text"></p>
-      </section>
-    </main>
+        <main class="app-main">
+            <section class="panel">
+                <h2>Features</h2>
+                <ul class="feature-list">
+                    <li>Upload images and store them in SQLite with IDs.</li>
+                    <li>Browse all images with their upload time and labels.</li>
+                    <li>Add / remove text labels for each image.</li>
+                    <li>Manage global label list.</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <script src="/js/nav.js"></script>
+</body>
 
-    <script src="/js/app.js"></script>
-  </body>
 </html>

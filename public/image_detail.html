@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Annotation Tool - Image Detail</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+</head>
+
+<body>
+    <div class="app-shell">
+        <header class="app-header">
+            <div class="app-title">AI Dataset Annotation Tool</div>
+            <nav class="app-nav">
+                <a href="/">Index</a>
+                <a href="/images.html">Images</a>
+                <a href="/upload.html">Upload</a>
+                <a href="/labels.html">Labels</a>
+            </nav>
+        </header>
+
+        <main class="app-main">
+            <section class="panel">
+                <h2 id="detail-title">Image Detail</h2>
+                <div id="detail-status" class="status-text"></div>
+
+                <div class="image-detail-layout" id="detail-layout" style="display: none">
+                    <div>
+                        <img id="detail-image" alt="image" />
+                    </div>
+                    <div>
+                        <div class="image-row-meta" id="detail-meta"></div>
+
+                        <h3>Labels</h3>
+                        <div id="detail-labels" class="labels-list"></div>
+
+                        <form id="add-label-form" class="upload-form" style="margin-top: 10px">
+                            <div class="upload-form-row">
+                                <input type="text" id="label-input" placeholder="New label..." />
+                                <button type="submit">Add</button>
+                            </div>
+                            <button id="delete-image-btn" class="danger" style="margin-top: 16px" type="button">
+                                    Delete this image
+                                </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/js/nav.js"></script>
+    <script src="/js/image_detail.js"></script>
+</body>
+
+</html>

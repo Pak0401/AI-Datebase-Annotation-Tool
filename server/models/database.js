@@ -13,6 +13,7 @@ const db = new sqlite3.Database(DB_PATH, (err) => {
   }
 });
 
+// 封裝
 function runAsync(sql, params = []) {
   return new Promise((resolve, reject) => {
     db.run(sql, params, function onResult(err) {
@@ -79,43 +80,6 @@ async function createImage({
   return image;
 }
 
-// 查找 label, 不存在; 自動建立
-async function findOrCreateLabelByName(name) {
-  // 找
-  let label = await getAsync(
-    `
-    SELECT *
-    FROM labels
-    WHERE name = ?
-  `,
-    [name],
-  );
-
-  if (label) {
-    return label;
-  }
-
-  // 新增
-  const insertResult = await runAsync(
-    `
-    INSERT INTO labels (name)
-    VALUES (?)
-  `,
-    [name],
-  );
-
-  label = await getAsync(
-    `
-    SELECT *
-    FROM labels
-    WHERE id = ?
-  `,
-    [insertResult.lastID],
-  );
-
-  return label;
-}
-
 // label 加到圖片上
 async function addLabelToImage(imageId, labelName, confidence = 1.0) {
   const label = await findOrCreateLabelByName(labelName);
@@ -127,6 +91,17 @@ async function addLabelToImage(imageId, labelName, confidence = 1.0) {
     VALUES (?, ?, ?)
   `,
     [imageId, label.id, confidence],
+  );
+}
+
+// 從圖片移除 label
+async function removeLabelFromImage(imageId, labelId) {
+  await runAsync(
+    `
+    DELETE FROM annotations
+    WHERE image_id = ? AND label_id = ?
+  `,
+    [imageId, labelId],
   );
 }
 
@@ -223,6 +198,45 @@ async function getAllImagesWithLabels() {
   return result;
 }
 
+// 全部 labels
+async function getAllLabels() {
+  return await allAsync(`
+    SELECT id, name, created_at
+    FROM labels
+    ORDER BY id ASC
+  `);
+}
+
+// 新增/找到 label
+async function findOrCreateLabelByName(name) {
+  const existing = await getAsync(`SELECT * FROM labels WHERE name = ?`, [name]);
+  if (existing) return existing;
+
+  const result = await runAsync(
+    `INSERT INTO labels (name) VALUES (?)`,
+    [name],
+  );
+
+  return await getAsync(`SELECT * FROM labels WHERE id = ?`, [result.lastID]);
+}
+
+// 修改 label 名稱
+async function updateLabelName(id, name) {
+  await runAsync(
+    `
+    UPDATE labels
+    SET name = ?
+    WHERE id = ?
+    `,
+    [name, id]
+  );
+}
+
+// 刪除 label
+async function deleteLabelById(id) {
+  await runAsync(`DELETE FROM labels WHERE id = ?`, [id]);
+}
+
 module.exports = {
   db,
   runAsync,
@@ -231,6 +245,10 @@ module.exports = {
   createImage,
   findOrCreateLabelByName,
   addLabelToImage,
+  removeLabelFromImage,
   getImageByIdWithLabels,
   getAllImagesWithLabels,
+  getAllLabels,
+  updateLabelName,
+  deleteLabelById,
 };
