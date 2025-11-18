@@ -269,15 +269,15 @@ CREATE TABLE tasks (
 
 ## Individual Contributions
 
-### [Your Name] - [Student ID]
+### Pak Hoi Yi  - s24516778
 
 **Primary Responsibilities:**
 
-- [List your main areas of responsibility]
+- coding and debug
 
 **Code Contributions:**
 
-- [List specific files or features you implemented]
+- server and public folder
 
 **Git Commits:**
 
@@ -289,7 +289,9 @@ CREATE TABLE tasks (
 
 **Learning Outcomes:**
 
-- [What did you learn from this assignment?]
+- Learned how to build a complete full-stack web application integrating Express, SQLite, and JavaScript.
+  Designed and implemented the main RESTful APIs, backend logic, and CRUD operations.
+  Connected frontend pages with backend APIs using fetch() and dynamic DOM rendering.
 
 ## Development Process
 
@@ -380,15 +382,16 @@ The application includes sample data with:
 
 ### AI Tools Used
 
-- [List any AI tools used - see AI_Usage_Declaration.md for details]
+- ChatGPT
 
 ## Group Collaboration
 
 ### Communication
 
-- **Primary Method**: [e.g., WhatsApp, Discord, Slack]
+- **Primary Method**: Whatsapp
 - **Meeting Frequency**: [e.g., Twice per week]
-- **Code Review Process**: [Describe your code review process]
+- **Code Review Process**: We tested each feature step by step, verified API and SQL behaviour, checked logs, and ensured the frontend and backend interacted correctly. 
+                           We fixed issues immediately during development.
 
 ### Git Workflow
 
@@ -406,12 +409,12 @@ This project was developed as part of the Software Engineering and Professional 
 
 ## Contact Information
 
-**Group Representative**: [Name and Email]
-**Repository**: [GitHub/GitLab URL]
+**Group Representative**: Pak Hoi Yi, s2451677@student.hkct.edu.hk
+**Repository**: [GitHub/GitLab URL](https://github.com/Pak0401/AI-Datebase-Annotation-Tool)
 **Course**: Software Engineering and Professional Practice 2025-2026
 **Lecturer**: Beeno Tung
 
 ---
 
-**Last Updated**: [Date]
+**Last Updated**: 11/18
 **Version**: 1.0.0

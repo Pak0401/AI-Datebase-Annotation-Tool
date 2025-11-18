@@ -9,7 +9,7 @@
 **Group Members:**
 
 1. Pak Hoi Yi - s24516778 - member, codeing 
-2. Cheng Man Hei - [Student ID] - member, debug
+2. Cheng Man Hei - [Student ID] - member, debug *(i don't know her ID, and she had not yet reply me)
 3. [Student Name] - [Student ID] - [Role/Responsibilities]
 4. [Student Name] - [Student ID] - [Role/Responsibilities]
 
