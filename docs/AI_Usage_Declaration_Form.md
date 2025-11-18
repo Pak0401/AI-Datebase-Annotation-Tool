@@ -4,7 +4,7 @@
 
 - **Name:** Pak Hoi Yi
 - **Student ID:** s24516778
-- **Group Number:** [Your Group Number] (i forgot)
+- **Group Number:** Group 6
 - **Submission Date:** 11/18
 
 ## Declaration
